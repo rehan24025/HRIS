@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('gaji', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
-    $table->string('bulan');
-    $table->integer('gaji_pokok');
-    $table->integer('total_potongan')->default(0);
-    $table->integer('total_gaji');
-    $table->timestamps();
-});
-
+        Schema::create('gaji', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
+            $table->string('bulan');
+            $table->decimal('gaji_pokok');
+            $table->decimal('total_potongan')->default(0);
+            $table->decimal('total_gaji');
+            $table->timestamps();
+        });
     }
 
     /**

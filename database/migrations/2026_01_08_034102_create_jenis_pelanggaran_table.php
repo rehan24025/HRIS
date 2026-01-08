@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-      Schema::create('jenis_pelanggaran', function (Blueprint $table) {
-    $table->id();
-    $table->string('nama_pelanggaran');
-    $table->string('tingkat');
-    $table->integer('potongan')->default(0);
-    $table->text('keterangan')->nullable();
-    $table->timestamps();
-});
-
+        Schema::create('jenis_pelanggaran', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_pelanggaran');
+            $table->enum('tingkat', ['ringan', 'sedang', 'berat']);
+            $table->decimal('potongan')->default(0);
+            $table->text('keterangan')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

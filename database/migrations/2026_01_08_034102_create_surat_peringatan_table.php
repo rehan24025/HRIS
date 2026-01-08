@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-      Schema::create('surat_peringatan', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
-    $table->foreignId('pelanggaran_id')->constrained('pelanggaran_karyawan')->cascadeOnDelete();
-    $table->string('nomor_sp');
-    $table->string('jenis_sp');
-    $table->date('tanggal_terbit');
-    $table->timestamps();
-});
-
+        Schema::create('surat_peringatan', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
+            $table->foreignId('pelanggaran_id')->constrained('pelanggaran_karyawan')->cascadeOnDelete();
+            $table->string('nomor_sp');
+            $table->enum('jenis_sp', ['SP1', 'SP2', 'SP3']);
+            $table->date('tanggal_terbit');
+            $table->timestamps();
+        });
     }
 
     /**
