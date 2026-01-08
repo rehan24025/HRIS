@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>App</title>
+  <title>HRIS APP</title>
   @viteReactRefresh
   @vite('resources/js/app.jsx')
 </head>
