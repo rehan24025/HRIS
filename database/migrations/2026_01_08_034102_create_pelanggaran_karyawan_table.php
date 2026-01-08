@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('pelanggaran_karyawan', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
-    $table->foreignId('jenis_pelanggaran_id')->constrained('jenis_pelanggaran')->cascadeOnDelete();
-    $table->date('tanggal');
-    $table->text('catatan')->nullable();
-    $table->timestamps();
-});
-
+        Schema::create(
+            'pelanggaran_karyawan',
+            function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
+                $table->foreignId('jenis_pelanggaran_id')->constrained('jenis_pelanggaran')->cascadeOnDelete();
+                $table->date('tanggal');
+                $table->text('catatan')->nullable();
+                $table->timestamps();
+            }
+        );
     }
 
     /**

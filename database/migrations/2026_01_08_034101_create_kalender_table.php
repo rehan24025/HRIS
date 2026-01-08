@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kalender', function (Blueprint $table) {
-            $table->id();
-            $table->date('tanggal');
-            $table->string('keterangan');
-            $table->enum('jenis_hari', ['libur', 'cuti bersama']);
-            $table->timestamps();
-        });
+        Schema::create(
+            'kalender',
+            function (Blueprint $table) {
+                $table->id();
+                $table->date('tanggal');
+                $table->string('keterangan');
+                $table->enum('jenis_hari', ['libur', 'cuti bersama']);
+                $table->timestamps();
+            }
+        );
     }
 
     /**

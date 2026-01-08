@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absensi', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
-            $table->date('tanggal');
-            $table->time('jam_masuk')->nullable();
-            $table->time('jam_pulang')->nullable();
-            $table->enum('status', ['hadir', 'cuti', 'izin', 'tanpa keterangan']);
-            $table->timestamps();
-        });
+        Schema::create(
+            'absensi',
+            function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('karyawan_id')->constrained('karyawan')->cascadeOnDelete();
+                $table->date('tanggal');
+                $table->time('jam_masuk')->nullable();
+                $table->time('jam_pulang')->nullable();
+                $table->enum('status', ['hadir', 'cuti', 'izin', 'tanpa keterangan']);
+                $table->timestamps();
+            }
+        );
     }
 
     /**

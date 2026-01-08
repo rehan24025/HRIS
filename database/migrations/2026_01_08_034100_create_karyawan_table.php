@@ -11,19 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('karyawan', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-    $table->string('nip')->unique();
-    $table->string('jabatan');
-    $table->string('jenis_kelamin');
-    $table->date('tanggal_lahir');
-    $table->string('departemen');
-    $table->date('tanggal_masuk');
-    $table->text('alamat');
-    $table->timestamps();
-});
-
+        Schema::create(
+            'karyawan',
+            function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+                $table->string('nip')->unique();
+                $table->string('jabatan');
+                $table->string('jenis_kelamin');
+                $table->date('tanggal_lahir');
+                $table->string('departemen');
+                $table->date('tanggal_masuk');
+                $table->text('alamat');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
