@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
-    return view('test');
-});
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');
